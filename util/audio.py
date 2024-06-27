@@ -57,7 +57,7 @@ def _griffin_lim(S):
   Based on https://github.com/librosa/librosa/issues/434
   '''
   angles = np.exp(2j * np.pi * np.random.rand(*S.shape))
-  S_complex = np.abs(S).astype(np.complex)
+  S_complex = np.abs(S).astype(complex)
   y = _istft(S_complex * angles)
   for i in range(hparams.griffin_lim_iters):
     angles = np.exp(1j * np.angle(_stft(y)))
